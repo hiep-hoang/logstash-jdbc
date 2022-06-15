@@ -43,20 +43,21 @@ services:
     build: 
       dockerfile: ${PWD}/Dockerfile
       context: ${PWD}/
+      container_name: logstash-bankmonitor
     environment:
-      - LOGSTASH_JDBC_URL=jdbc:mysql://mysql:3306/example?useSSL=false
+      - LOGSTASH_JDBC_URL=jdbc:mysql://10.10.9.16:3307/pay-gate
       - LOGSTASH_JDBC_DRIVER=com.mysql.cj.jdbc.Driver
       - LOGSTASH_JDBC_DRIVER_JAR_LOCATION=/usr/share/logstash/logstash-core/lib/jars/mysql-connector-java.jar
-      - LOGSTASH_JDBC_USERNAME=admin
-      - LOGSTASH_JDBC_PASSWORD=admin
-      - LOGSTASH_ELASTICSEARCH_HOST=http://elasticsearch:9200
+      - LOGSTASH_JDBC_USERNAME=backup
+      - LOGSTASH_JDBC_PASSWORD=f0w1UEYztZn5kdQ
+    #  - LOGSTASH_ELASTICSEARCH_HOST=http://elasticsearch:9200
     volumes: 
       - ./mysql-jdbc-input-plugin.conf:/usr/share/logstash/pipeline/logstash.conf
     ports:
       - 9600:9600
       - 5044:5044
-    networks:
-      - share-network
+    # networks:
+    #   - share-network
     # depends_on:
     #   - elasticsearch
     #   - kibana
@@ -64,5 +65,5 @@ services:
 # volumes:
 #   elasticsearch_data:
 #   mysql_data:
-networks:
-  share-network:
+# networks:
+#   share-network:

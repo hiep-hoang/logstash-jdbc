@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 docker.elastic.co/logstash/logstash-oss:6.8.12
+FROM docker.elastic.co/logstash/logstash-oss:6.8.12
 MAINTAINER <hiep hoang>
 
 # install dependency
