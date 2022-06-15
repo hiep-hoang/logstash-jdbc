@@ -43,7 +43,7 @@ services:
     build: 
       dockerfile: ${PWD}/Dockerfile
       context: ${PWD}/
-      container_name: logstash-bankmonitor
+    container_name: logstash-bankmonitor
     environment:
       # - LOGSTASH_JDBC_URL=jdbc:mysql://10.10.9.16:3307/pay-gate
       # - LOGSTASH_JDBC_DRIVER=com.mysql.cj.jdbc.Driver
